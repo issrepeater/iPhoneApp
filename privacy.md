@@ -1,7 +1,3 @@
----
-title: Privacy Policy
----
-
 # Privacy Policy
 
 **ISS Repeater for iOS · Last updated 9 September 2026**
@@ -135,8 +131,8 @@ network activity of its own, and collects nothing. Magnetic declination is
 computed on the device from the World Magnetic Model published by NOAA's
 National Centers for Environmental Information and the British Geological
 Survey; the model is a table of numbers bundled with the app and involves no
-network access. Full licence and attribution notices are in the app under
-**Settings → Acknowledgements**, and on the [support page](index.html).
+network access. The full licence and attribution notices are in the app, under
+**Settings → Acknowledgements**.
 
 There are no other third-party libraries, and no third-party SDK in this app
 receives any data.
@@ -163,13 +159,13 @@ Questions about this policy: <issrepeater@gmail.com>
 
 ---
 
-[← Back to support](index.html)
+[← Back to the app overview](README.md)
 
-SatelliteKit is used under the MIT licence; the full notice is on the support
-page and in the app. The World Magnetic Model coefficients are a work of the
-United States Government and are not subject to copyright protection; the model
-is provided by NOAA/NCEI without warranty of any kind, and NOAA and the British
-Geological Survey make no representations as to its accuracy or fitness for any
-particular purpose.
+SatelliteKit is used under the MIT licence; the full notice is in the app under
+Settings → Acknowledgements. The World Magnetic Model coefficients are a work of
+the United States Government and are not subject to copyright protection; the
+model is provided by NOAA/NCEI without warranty of any kind, and NOAA and the
+British Geological Survey make no representations as to its accuracy or fitness
+for any particular purpose.
 
 ISS Repeater is not affiliated with NASA, ARISS, AMSAT, CelesTrak, NOAA or BGS.
