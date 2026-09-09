@@ -4,7 +4,7 @@
 repeater — for iPhone.**
 
 Most satellite trackers tell you when the ISS passes over *you*. If you want to
-talk to someone through it, that isn't quite the question. The station has to be
+talk to someone through it, you'll need more information. The station has to be
 above your horizon **and** above the other operator's at the same moment, and
 that shared window is usually a good deal shorter than either of your own
 passes. ISS Repeater finds those windows, gives you a Doppler tuning schedule
