@@ -1,37 +1,91 @@
-Most satellite trackers tell you when the ISS passes over you. This app tells you when you and a second station are within radio range for communicating. 
+# ISS Repeater — published support pages
 
-The ISS carries a cross-band FM repeater. To make a contact through it, the station has to be above your horizon and above the other operator's at the same moment.  ISS Repeater finds those windows for any two stations, up to seven days ahead.
+**Live as of 2026-09-09.** Both URLs App Store Connect asks for now resolve,
+without GitHub Pages being enabled.
 
-TWO STATIONS, OR ONE
+| Field in App Store Connect | URL |
+| --- | --- |
+| **Privacy Policy URL** | `https://github.com/issrepeater/iPhoneApp/blob/main/privacy.md` |
+| **Support URL** | `https://github.com/issrepeater/iPhoneApp` |
 
-In DUAL mode, enter both stations and get back only the windows you can actually share. In SINGLE mode it works as a straightforward pass planner for listening to the repeater yourself.
+GitHub renders Markdown natively in the blob view, so both pages display
+properly to anyone with the link, with no login and no build step. Apple's
+requirement is that the URL resolves publicly and is relevant, which these do.
+The only cost is GitHub's own chrome around the page.
 
-Coordinates go in three ways: typed, dropped as a pin on a map, or taken from your phone's own GPS fix.
+## What is in the repo
 
-A DOPPLER SCHEDULE, NOT JUST A PASS TIME
+`github.com/issrepeater/iPhoneApp`
 
-The downlink drifts about 20 kHz from one end of a pass to the other. Each result card lays out five receive channels across 437.790-437.810 MHz and tells you when to move to each one and when to leave it - separately for each station, so both operators can work from the same plan.
+- `README.md` — the support page. Shown automatically at the repo root, which is
+  why the repo URL works as the Support URL.
+- `privacy.md` — the privacy policy. Source of truth is `AppStore/privacy.md`
+  in this Project; re-upload after any edit here.
 
-FIND IT IN THE SKY
+## Fixed on 2026-09-09, after the first upload
 
-Tap LIVE VIEW and hold the phone up. The camera shows the horizon, the compass points, the whole arc of that pass, and a marker on where the ISS is right now. When it is out of frame, an arrow points the way to turn. Azimuth, elevation and range are read out along the bottom.
+The first published `privacy.md` had two broken links and one redundant block.
+The version in this Project is corrected — **re-upload it over the published
+one**:
 
-Bearings are TRUE, not magnetic. The app carries the World Magnetic Model and corrects for declination at your own coordinates, so what you see lines up with a rotator readout or a map.
+1. `[← Back to support](index.html)` and `[support page](index.html)` both
+   pointed at a file that does not exist in that repo. The footer link now
+   points at `README.md`; the licence sentence now points at the app's own
+   **Settings → Acknowledgements** screen, which is where those notices
+   actually live.
+2. The YAML front matter (`---` / `title: Privacy Policy` / `---`) was removed.
+   Its only purpose is GitHub Pages, which is not enabled. See below if that
+   changes.
 
-SAVE A PASS, GET A REMINDER
+## The licence notices are discharged in the app, not on the web
 
-Tap SAVE on any window to keep it. Saved passes keep their numbers current against freshly fetched orbital elements, and an optional notification arrives ten minutes before each one opens.
+Worth knowing, because it decides how much the web pages matter: SatelliteKit's
+MIT notice and the NOAA/BGS WMM attribution both ship **inside the binary**,
+under Settings → Acknowledgements (added 2026-09-09). The support page carrying
+them too is belt-and-braces, not the obligation. So the current README having no
+licence section is not a gap.
 
-NIGHT MODE
+If you want them on the web as well, the text to paste is in
+`AppStore/index.html`'s footer, or ask for it as Markdown.
 
-Black background, red text, for use at the radio without wrecking your dark adaptation.
+## `AppStore/index.html` — kept, not published
 
-PRACTICAL NOTES
+The richer support page (FAQ, how to read a window card, the settings glossary,
+licence footer) is still in this Project. It is **not** what is published; the
+repo's `README.md` is. Keep it if you later want a proper support site — it is
+already written and needs only hosting. Delete it if the README is enough.
 
-- Orbital elements come from CelesTrak, with AMSAT as a fallback, and are cached on the phone. Once they are there, searching, Doppler planning and the sky finder all work with no connection at all. You can paste your own element set instead if you prefer.
-- The app predicts geometry, not equipment. The repeater is powered down for some crew operations, EVAs and school contacts. A window means the station is mutually visible, not that it is transmitting.
-- Uplink and operating practice are yours to get right, according to your licence class and national regulations.
+`AppStore/privacy.html` was deleted on 2026-09-09, superseded by `privacy.md`.
 
-PRIVACY
+## If you later enable GitHub Pages
 
-No accounts, no analytics, no advertising, and nothing about you is collected or transmitted anywhere. The only requests the app makes are for orbital elements, and for Apple's map tiles if you use the map picker.
+Only worth doing for a nicer URL and no GitHub chrome. Three things change:
+
+1. **Add the front matter back** to `privacy.md`, or Jekyll will serve it as raw
+   text rather than rendering it:
+   ```
+   ---
+   title: Privacy Policy
+   ---
+   ```
+   Files without front matter are copied verbatim, not converted — this is the
+   single most common way a Markdown page on Pages ends up looking broken.
+2. **Add an `index.html` or `index.md`**, or the site root 404s. `index.html` is
+   already written and ready in this Project.
+3. **Re-point the links.** `README.md` is not served by Pages; the footer link
+   would need to become `./` or `index.html`, and the Privacy Policy URL becomes
+   `https://issrepeater.github.io/iPhoneApp/privacy.html` — note `.html`, since
+   Jekyll converts the `.md`.
+
+Settings → Pages, Source = Deploy from a branch, Branch = `main`, folder =
+`/ (root)`.
+
+## Screenshots
+
+`appstore-screenshots.sh` captures the booted Simulator and rescales one good
+shot into each required pixel size. Drop the 13-inch iPad entry from its `SIZES`
+array once iPad is removed from Supported Destinations (SETUP.md step 10) —
+which has to happen before the capture session anyway, since the sky finder
+ships broken in landscape.
+
+Caption copy for each screenshot is in `AppStore/store-listing.md`.
