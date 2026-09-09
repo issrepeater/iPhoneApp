@@ -1,91 +1,239 @@
-# ISS Repeater — published support pages
+# ISS Repeater
 
-**Live as of 2026-09-09.** Both URLs App Store Connect asks for now resolve,
-without GitHub Pages being enabled.
+**Plan and work contacts through the International Space Station's cross-band FM
+repeater — for iPhone.**
 
-| Field in App Store Connect | URL |
+Most satellite trackers tell you when the ISS passes over *you*. If you want to
+talk to someone through it, that isn't quite the question. The station has to be
+above your horizon **and** above the other operator's at the same moment, and
+that shared window is usually a good deal shorter than either of your own
+passes. ISS Repeater finds those windows, gives you a Doppler tuning schedule
+for each one, and then helps you point an antenna at the pass.
+
+**Questions, bug reports, or a pass that didn't line up?**
+📧 **[issrepeater@gmail.com](mailto:issrepeater@gmail.com)**
+Send the station coordinates and the date and time you were expecting, and it
+can be reproduced exactly.
+
+[**Privacy policy**](privacy.md) · No accounts, no analytics, no tracking,
+nothing collected.
+
+---
+
+## Getting started
+
+1. **Set STATION 01.** Type coordinates as `latitude,longitude` — for example
+   `36.0834,-115.1539` — or tap **SELECT FROM MAP** to drop a pin, or turn on
+   **Use current location** to use your phone's GPS fix. You can add an optional
+   third value for altitude: `latitude,longitude,altitude`.
+2. **Planning a contact with someone else?** Open **SETTINGS**, set **Station
+   mode** to **DUAL**, and a STATION 02 field appears. Enter their coordinates
+   the same way. Leave it on **SINGLE** if you just want to know when the ISS is
+   overhead for you.
+3. **Tap Calculate.** The app propagates the orbit and returns every window in
+   your search span — 1, 3 or 7 days, set in Settings.
+4. **Read the cards.** Each one is a single window. More on that below.
+5. **Tap SAVE** on a window to keep it, or **LIVE VIEW** to open the sky finder
+   and point at the pass.
+
+> A fresh install starts with an example location (Las Vegas) so you can see
+> what the app produces straight away. A notice under STATION 01 says so, and it
+> disappears as soon as you set your own coordinates.
+
+---
+
+## Reading a window card
+
+Each card is one pass window. The header gives the date and the start and end
+times; the table underneath is the tuning schedule.
+
+| Column | What it means |
 | --- | --- |
-| **Privacy Policy URL** | `https://github.com/issrepeater/iPhoneApp/blob/main/privacy.md` |
-| **Support URL** | `https://github.com/issrepeater/iPhoneApp` |
+| **MHz** | The downlink channel to be **receiving** on. |
+| Under each station | Two stacked times: when to move to that channel, and when to leave it. |
+| **ε₁ / ε₂** | The highest the ISS climbs above that station's horizon while it is parked on that channel. Higher means a stronger, cleaner signal. |
 
-GitHub renders Markdown natively in the blob view, so both pages display
-properly to anyone with the link, with no login and no build step. Apple's
-requirement is that the URL resolves publicly and is relevant, which these do.
-The only cost is GitHub's own chrome around the page.
+While a window is open, the active row is highlighted and the status bar at the
+top counts down to STATION 01's next frequency change.
 
-## What is in the repo
+In **DUAL** mode you get a column for each station, because the two operators
+are at different points on the pass and their Doppler shift differs. Both of you
+can work from the same card.
 
-`github.com/issrepeater/iPhoneApp`
+---
 
-- `README.md` — the support page. Shown automatically at the repo root, which is
-  why the repo URL works as the Support URL.
-- `privacy.md` — the privacy policy. Source of truth is `AppStore/privacy.md`
-  in this Project; re-upload after any edit here.
+## Working a pass
 
-## Fixed on 2026-09-09, after the first upload
+The app tells you *when* and *what to receive on*. Here is how that fits into
+actually making the contact.
 
-The first published `privacy.md` had two broken links and one redundant block.
-The version in this Project is corrected — **re-upload it over the published
-one**:
+1. **Before the pass.** Check the element set is current — the line at the top
+   of the main screen shows its age. Pull down to refresh. Elements a few days
+   old are fine; weeks old will drift, especially after a reboost, and the app
+   says "stale" when it is time to worry.
+2. **A few minutes out.** Open the window card, or open **LIVE VIEW** if you are
+   pointing a directional antenna by hand.
+3. **As the window opens.** Set your radio to the first MHz value on the card.
+   The ISS is approaching, so it arrives high in frequency and drifts down as it
+   passes — the schedule is already built around that.
+4. **Through the pass.** Move to the next channel at each time the card gives.
+   The status bar counts you down to the next change so you are not doing
+   arithmetic in your head.
+5. **Peak elevation** is the best part of the window. If the pass is low
+   (ε below about 20°) expect a weak, short contact.
 
-1. `[← Back to support](index.html)` and `[support page](index.html)` both
-   pointed at a file that does not exist in that repo. The footer link now
-   points at `README.md`; the licence sentence now points at the app's own
-   **Settings → Acknowledgements** screen, which is where those notices
-   actually live.
-2. The YAML front matter (`---` / `title: Privacy Policy` / `---`) was removed.
-   Its only purpose is GitHub Pages, which is not enabled. See below if that
-   changes.
+### About the uplink
 
-## The licence notices are discharged in the app, not on the web
+**The app schedules receive frequencies only.** Transmitting is your own
+responsibility, per your licence class and national regulations.
 
-Worth knowing, because it decides how much the web pages matter: SatelliteKit's
-MIT notice and the NOAA/BGS WMM attribution both ship **inside the binary**,
-under Settings → Acknowledgements (added 2026-09-09). The support page carrying
-them too is belt-and-braces, not the obligation. So the current README having no
-licence section is not a gap.
+For reference, the ISS cross-band FM repeater has generally used a **145.990 MHz
+uplink with a 67.0 Hz CTCSS tone**, downlinking on 437.800 MHz. Configurations
+change, and the repeater is not always the active mode — check
+[ARISS](https://www.ariss.org/) for the current setup before you rely on it.
 
-If you want them on the web as well, the text to paste is in
-`AppStore/index.html`'s footer, or ask for it as Markdown.
+---
 
-## `AppStore/index.html` — kept, not published
+## The sky finder (LIVE VIEW)
 
-The richer support page (FAQ, how to read a window card, the settings glossary,
-licence footer) is still in this Project. It is **not** what is published; the
-repo's `README.md` is. Keep it if you later want a proper support site — it is
-already written and needs only hosting. Delete it if the README is enough.
+Tap **LIVE VIEW** on any window card and hold the phone up. The camera view
+shows:
 
-`AppStore/privacy.html` was deleted on 2026-09-09, superseded by `privacy.md`.
+- the horizon and the compass points,
+- the whole arc of that pass across the sky,
+- a marker on where the ISS is right now,
+- an arrow pointing which way to turn when it is out of frame,
+- azimuth, elevation and range along the bottom.
 
-## If you later enable GitHub Pages
+**All bearings are TRUE, not magnetic.** The app carries the World Magnetic
+Model and corrects for declination at your own coordinates, so what it shows
+lines up with a rotator readout or a paper map. The correction in use is printed
+under the readout.
 
-Only worth doing for a nicer URL and no GitHub chrome. Three things change:
+Tap **HUD** in the header for a crosshair showing exactly where the phone is
+pointed, which is what you want when lining up a beam.
 
-1. **Add the front matter back** to `privacy.md`, or Jekyll will serve it as raw
-   text rather than rendering it:
-   ```
-   ---
-   title: Privacy Policy
-   ---
-   ```
-   Files without front matter are copied verbatim, not converted — this is the
-   single most common way a Markdown page on Pages ends up looking broken.
-2. **Add an `index.html` or `index.md`**, or the site root 404s. `index.html` is
-   already written and ready in this Project.
-3. **Re-point the links.** `README.md` is not served by Pages; the footer link
-   would need to become `./` or `index.html`, and the Privacy Policy URL becomes
-   `https://issrepeater.github.io/iPhoneApp/privacy.html` — note `.html`, since
-   Jekyll converts the `.md`.
+### If the compass says "Calibrating"
 
-Settings → Pages, Source = Deploy from a branch, Branch = `main`, folder =
-`/ (root)`.
+- Wave the phone in a figure-8 and step away from anything metal.
+- A MagSafe case is a ring of magnets held against the back of your phone.
+  Expect a few degrees of error with one fitted, and take it off if you need
+  precision.
+- If it never clears, iOS may not be permitted to calibrate. Check
+  **Settings → Privacy & Security → Location Services → System Services →
+  Compass Calibration** is on. It is near the bottom of that list.
+- Bearings still work while calibrating; they are just less exact.
 
-## Screenshots
+The finder also works with camera access switched off — you get the overlay on a
+blank panel, and the bearings are just as accurate.
 
-`appstore-screenshots.sh` captures the booted Simulator and rescales one good
-shot into each required pixel size. Drop the 13-inch iPad entry from its `SIZES`
-array once iPad is removed from Supported Destinations (SETUP.md step 10) —
-which has to happen before the capture session anyway, since the sky finder
-ships broken in landscape.
+---
 
-Caption copy for each screenshot is in `AppStore/store-listing.md`.
+## Settings
+
+| Setting | What it does |
+| --- | --- |
+| **Station mode** | SINGLE plans around the repeater from one station. DUAL finds mutual windows for two. |
+| **Time zone** | LOCAL, ZULU (UTC), or any zone you pick. Drives the clock and every time in the results. |
+| **Search span** | How many days ahead to look: 1, 3 or 7. |
+| **Minimum elevation** | Ignore passes that never get this high. Raise it if low passes are blocked by terrain or buildings. |
+| **Altitude units** | Feet or metres — how the optional third coordinate value is read. |
+| **Range units** | Nautical miles, statute miles, or kilometres. |
+| **Range measured** | SLANT is the straight-line distance to the ISS; GROUND is measured along the surface. |
+| **Max range from ISS** | The distance limit for counting as "in range." |
+| **Night mode** | Black background, red text — for use at the radio without wrecking your dark adaptation. |
+| **Notifications** | A local reminder 10 minutes before each pass on your saved list opens. |
+| **Enter TLE manually** | Paste your own two-line element set instead of the fetched one. |
+| **Acknowledgements** | Licence and attribution notices for the third-party work the app is built on. |
+
+---
+
+## Saved passes and reminders
+
+Tap **SAVE** on any window card to add it to your saved list, reachable from
+**SAVED** in the header. Saved passes keep their numbers current — when fresher
+orbital elements arrive, the times are recalculated rather than left to go
+stale.
+
+Turn on **Notifications** in Settings and you get a local alert ten minutes
+before each saved pass opens, naming the duration, the peak elevation, and the
+channel to start on. Nothing is sent to a server; iOS schedules the reminders on
+your device.
+
+Swipe left on a saved pass to remove it, or use **CLEAR EXPIRED PASSES** to tidy
+up ones that have already happened.
+
+---
+
+## Common questions
+
+### Why did it find no windows?
+
+In DUAL mode the two stations may simply be too far apart. The ISS has to be
+above both horizons at once, which caps the usable separation at roughly 2,000
+miles even for a perfect overhead pass. A too-high minimum elevation or a
+too-short search span will also empty the list.
+
+### Why are all the passes at similar times of day?
+
+That's real, and it is correct physics rather than a 12/24-hour mix-up. The
+ISS's orbit precesses slowly, so for several days at a stretch it passes over a
+given site at similar local times, then those times drift earlier.
+
+### How current are the orbital elements?
+
+The app fetches a fresh two-line element set for the ISS on launch from
+[CelesTrak](https://celestrak.org/), with [AMSAT](https://www.amsat.org/) as a
+fallback, and caches it. Pull down on the main screen to refresh. The line at
+the top of the screen reports two ages: how long ago the app last downloaded,
+and how old the elements themselves are. The second is the one that decides
+accuracy.
+
+### Does it need a network connection?
+
+Only to refresh the orbital elements, and to draw map tiles if you use SELECT
+FROM MAP. Once elements are cached, searching, Doppler planning and the sky
+finder all work entirely offline.
+
+### The repeater didn't come up during a window.
+
+The app predicts **geometry**, not the state of the equipment. The repeater is
+powered down during some crew operations, EVAs and school contacts, and the ISS
+occasionally runs other modes such as APRS packet or SSTV. A window means the
+station is mutually visible — not that it is transmitting.
+
+### Which frequencies does it schedule?
+
+The downlink is centred on 437.800 MHz, and the app schedules five receive
+channels spanning 437.790–437.810 MHz to track the Doppler shift across a pass.
+See [About the uplink](#about-the-uplink) for transmitting.
+
+---
+
+## Privacy
+
+ISS Repeater collects nothing. There are no accounts, no analytics, no
+advertising, and no server belonging to this app. Your coordinates, settings and
+saved passes stay in the app's own storage on your phone.
+
+Full details: [**Privacy policy**](privacy.md).
+
+---
+
+## Acknowledgements
+
+Orbit propagation uses [SatelliteKit](https://github.com/gavineadie/SatelliteKit)
+by Gavin Eadie, under the MIT licence. Magnetic declination is computed from the
+World Magnetic Model published by NOAA's National Centers for Environmental
+Information and the British Geological Survey; the WMM coefficients are a work
+of the United States Government and are not subject to copyright protection, and
+the model is provided without warranty of any kind. Orbital elements come from
+CelesTrak and AMSAT, who publish them freely for public use.
+
+The complete licence texts are in the app, under **Settings →
+Acknowledgements**.
+
+---
+
+*ISS Repeater is not affiliated with NASA, ARISS, AMSAT, CelesTrak, NOAA or the
+British Geological Survey.*
