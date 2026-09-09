@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ISS Repeater &mdash; Privacy Policy</title>
+<style>
+  :root{
+    --bg:#f2f2f7; --panel:#fff; --line:#d8d8dc;
+    --ink:#1c1c1e; --dim:#6e6e73; --accent:#007aff;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#000; --panel:#150808; --line:#3e1511;
+           --ink:#e8766b; --dim:#91544c; --accent:#ff453a; }
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:0 20px 72px;
+    background:var(--bg); color:var(--ink);
+    font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  .wrap{max-width:680px;margin:0 auto}
+  header{padding:56px 0 28px;border-bottom:1px solid var(--line);margin-bottom:32px}
+  h1{margin:0 0 6px;font-size:30px;letter-spacing:-.4px}
+  .sub{margin:0;color:var(--dim);font-size:15px}
+  h2{margin:36px 0 10px;font-size:19px;letter-spacing:-.2px}
+  a{color:var(--accent)}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:20px 0}
+  ul{padding-left:20px}
+  footer{margin-top:52px;padding-top:20px;border-top:1px solid var(--line);color:var(--dim);font-size:13px}
+  footer p{color:var(--dim);margin:0 0 12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Privacy Policy</h1>
+  <p class="sub">ISS Repeater for iOS &middot; Last updated 9 September 2026</p>
+</header>
+
+<div class="panel">
+  <p style="margin:0"><strong>The short version:</strong> ISS Repeater collects
+  nothing. There are no accounts, no analytics, no advertising, no tracking, and
+  no server that belongs to this app. Everything you type stays on your phone.</p>
+</div>
+
+<h2>Information the app does not collect</h2>
+<p>
+  ISS Repeater does not collect, transmit, sell, or share personal information. It
+  contains no analytics or advertising SDKs, no crash-reporting service, and no
+  user accounts. Nothing you enter is uploaded anywhere.
+</p>
+
+<h2>Location</h2>
+<p>
+  The app uses your location in two places, both optional and both on the
+  device only:
+</p>
+<ul>
+  <li><strong>STATION 01's coordinates.</strong> If you turn on "Use current
+      location," the app asks iOS for a single location fix and shows the
+      resulting latitude and longitude in the coordinate field. That value is
+      used on the device to compute pass geometry.</li>
+  <li><strong>The sky finder (LIVE VIEW).</strong> While the sky finder is open,
+      the app reads your location continuously so the ISS's position in the sky
+      and the magnetic-declination correction are computed from where you are
+      actually standing. Updates stop the moment you leave that screen. If
+      location is off, the finder points from STATION 01's typed coordinates
+      instead.</li>
+</ul>
+<p>
+  Your location is never transmitted off the device and is not stored beyond
+  the coordinate field described above. You can decline or revoke location
+  permission at any time in Settings&nbsp;&rarr;&nbsp;Privacy&nbsp;&amp;&nbsp;Security&nbsp;&rarr;&nbsp;Location
+  Services and simply type coordinates instead; every feature still works.
+</p>
+
+<h2>Camera</h2>
+<p>
+  The sky finder shows the rear camera's live view so the ISS can be marked on
+  the real sky. The preview is displayed on screen and nothing else: no photo
+  or video is captured, saved, analysed, or transmitted, and no image data ever
+  leaves the camera pipeline. If you decline camera access the finder still
+  works &mdash; the bearings, the horizon and the ISS marker are all computed
+  and are drawn over a blank panel instead of the camera image.
+</p>
+
+<h2>Motion sensors</h2>
+<p>
+  The sky finder reads the phone's gyroscope, accelerometer and magnetometer to
+  know which way the camera is pointing. Those readings are used on the device
+  for the current frame and are not recorded.
+</p>
+
+<h2>Data stored on your device</h2>
+<p>Stored locally, in the app's own storage, and never sent anywhere:</p>
+<ul>
+  <li>The station coordinates you entered or picked.</li>
+  <li>Your settings &mdash; station mode, search span, time zone, minimum
+      elevation, units, range limits, night mode, notification preference,
+      and any manually entered element set.</li>
+  <li>The passes you have saved, with the coordinates and settings they were
+      computed from.</li>
+  <li>A cached copy of the ISS orbital element set.</li>
+</ul>
+<p>Deleting the app removes all of it.</p>
+
+<h2>Network requests</h2>
+<p>
+  The app makes two kinds of outbound request, neither of which carries
+  personal data:
+</p>
+<ul>
+  <li><strong>Orbital elements.</strong> Fetching current two-line elements for
+      the ISS from <a href="https://celestrak.org/">CelesTrak</a>, with
+      <a href="https://www.amsat.org/">AMSAT</a> as a fallback. These are
+      public, read-only feeds. The request sends no identifiers &mdash; it does
+      not include your coordinates, your settings, or anything about you.</li>
+  <li><strong>Map tiles.</strong> When you open SELECT FROM MAP, Apple Maps
+      (MapKit, built into iOS) loads map imagery from Apple for the region shown
+      on screen. That is governed by Apple's own privacy policy; the app itself
+      sends Apple nothing beyond what MapKit needs to draw the map.</li>
+</ul>
+<p>
+  As with any request to any website, the operators of those services can see the
+  IP address the request came from. Those services are operated independently of
+  this app and are governed by their own privacy practices.
+</p>
+
+<h2>Notifications</h2>
+<p>
+  If you enable notifications, reminders are scheduled locally by iOS on your
+  device from the passes on your saved list. There is no push server and
+  no notification token is sent anywhere.
+</p>
+
+<h2>Children</h2>
+<p>
+  ISS Repeater is a utility for licensed amateur radio operators. It is not directed
+  at children and knowingly collects no information from anyone, of any age.
+</p>
+
+<h2>Third-party code and data</h2>
+<p>
+  The app links <a href="https://github.com/gavineadie/SatelliteKit">SatelliteKit</a>
+  (MIT licence) for orbital propagation. It is compiled into the app, performs no
+  network activity of its own, and collects nothing. Magnetic declination is
+  computed on the device from the World Magnetic Model published by NOAA/NCEI
+  and the British Geological Survey; the model is a table of numbers bundled
+  with the app and involves no network access.
+</p>
+
+<h2>Changes to this policy</h2>
+<p>
+  If this policy changes, the revised version will be posted at this address with
+  a new "last updated" date.
+</p>
+
+<h2>Contact</h2>
+<p>
+  Questions about this policy:
+  <a href="mailto:issrepeater@gmail.com">issrepeater@gmail.com</a>
+</p>
+
+<footer>
+  <p><a href="index.html">&larr; Back to support</a></p>
+  <p>SatelliteKit is used under the MIT licence (full text on the support page).
+  World Magnetic Model &copy; NOAA National Centers for Environmental Information
+  and the British Geological Survey, provided without warranty of any kind.</p>
+</footer>
+
+</div>
+</body>
+</html>
