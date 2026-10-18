@@ -1,6 +1,6 @@
 # Privacy Policy
 
-**ISS Repeater for iOS · Last updated 9 September 2026**
+**ISS Repeater for iOS · Last updated 18 October 2026**
 
 > **The short version:** ISS Repeater collects nothing. There are no accounts, no
 > analytics, no advertising, no tracking, and no server belonging to this app for
@@ -22,7 +22,7 @@ later without the app becoming unusable.
 
 | Permission | What it is used for | If you decline |
 | --- | --- | --- |
-| **Location**<br>(While Using the App) | Filling in STATION 01's coordinates, and pointing the sky finder from where you are actually standing. | Type coordinates, or drop a pin on the map, instead. Every feature still works. |
+| **Location**<br>(While Using the App) | Filling in STATION 01's coordinates, and pointing the sky finder from where you are actually standing. | Type coordinates, or drop a pin on the map, instead. Every feature still works. If you decline and later allow it in Settings, the app picks it up the next time you return. |
 | **Camera** | Showing the live view behind the sky finder's overlay, so the ISS can be marked against the real sky. | The finder still works. The horizon, arc, bearings and ISS marker are drawn over a blank panel instead of the camera image. |
 | **Notifications** | A local reminder ten minutes before a pass on your saved list opens. | No reminders. Everything else is unaffected. |
 
@@ -62,7 +62,9 @@ The sky finder shows the rear camera's live view so the ISS can be marked on the
 real sky. The preview is displayed on screen and nothing else: no photo or video
 is captured, saved, analysed, or transmitted. The app installs no capture output
 of any kind — frames go from the camera to an on-screen preview layer and
-nowhere else, so there is nothing to store or send.
+nowhere else, so there is nothing to store or send. A tap on the live view (if
+you have turned on "Tap to declutter") only changes which overlays are drawn; it
+does not take a picture.
 
 ## Motion sensors
 
@@ -76,8 +78,11 @@ Stored locally, in the app's own storage, and never sent anywhere:
 
 - The station coordinates you entered or picked.
 - Your settings — station mode, search span, time zone, minimum elevation,
-  units, range limits, night mode, notification preference, and any manually
-  entered element set.
+  units, range limit, night mode, notification preference, channel display
+  mode, and any manually entered element set.
+- The names you give the five receive channels, if you use that feature.
+- Your live-view display preferences — which overlays are switched on, the two
+  custom presets, and the tap-to-declutter setting.
 - The passes you have saved, with the coordinates and settings they were
   computed from.
 - A cached copy of the ISS orbital element set.
@@ -152,6 +157,10 @@ this, the contact address is below.
 
 If this policy changes, the revised version will be posted at this address with
 a new "last updated" date.
+
+*18 October 2026 — version 1.1: added channel names and live-view display
+preferences to the list of data stored on the device; noted that a tap on the
+live view does not capture an image. No change to what is collected (nothing).*
 
 ## Contact
 
