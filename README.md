@@ -1,10 +1,14 @@
+<!-- This page describes version 1.1 (final text 2026-10-18). Upload it to
+     the repo's README.md when 1.1 is live on the App Store; until then the
+     live README should keep describing 1.0. -->
+
 # ISS Repeater
 
 **Plan and work contacts through the International Space Station's cross-band FM
 repeater — for iPhone.**
 
 Most satellite trackers tell you when the ISS passes over *you*. If you want to
-talk to someone through it, you'll need more information. The station has to be
+talk to someone through it, that isn't quite the question. The station has to be
 above your horizon **and** above the other operator's at the same moment, and
 that shared window is usually a good deal shorter than either of your own
 passes. ISS Repeater finds those windows, gives you a Doppler tuning schedule
@@ -49,7 +53,7 @@ times; the table underneath is the tuning schedule.
 
 | Column | What it means |
 | --- | --- |
-| **MHz** | The downlink channel to be **receiving** on. |
+| **MHz** (or **CHANNEL**) | The downlink channel to be **receiving** on — as a frequency, or as whatever you have named that memory on your radio (see *Channel display* below). |
 | Under each station | Two stacked times: when to move to that channel, and when to leave it. |
 | **ε₁ / ε₂** | The highest the ISS climbs above that station's horizon while it is parked on that channel. Higher means a stronger, cleaner signal. |
 
@@ -59,6 +63,14 @@ top counts down to STATION 01's next frequency change.
 In **DUAL** mode you get a column for each station, because the two operators
 are at different points on the pass and their Doppler shift differs. Both of you
 can work from the same card.
+
+### Channel names instead of frequencies
+
+If your radio has the five downlink channels stored as memories, you can have
+the app show your names for them instead of the numbers. In **Settings → Channel
+display** choose **NAME**, tap **EDIT CHANNEL NAMES**, and type a name beside
+each frequency. Names then appear on the cards, in the status bar, on the sky
+finder and in reminders. A channel you leave blank keeps showing its frequency.
 
 ---
 
@@ -73,12 +85,13 @@ actually making the contact.
    says "stale" when it is time to worry.
 2. **A few minutes out.** Open the window card, or open **LIVE VIEW** if you are
    pointing a directional antenna by hand.
-3. **As the window opens.** Set your radio to the first MHz value on the card.
+3. **As the window opens.** Set your radio to the first channel on the card.
    The ISS is approaching, so it arrives high in frequency and drifts down as it
    passes — the schedule is already built around that.
 4. **Through the pass.** Move to the next channel at each time the card gives.
    The status bar counts you down to the next change so you are not doing
-   arithmetic in your head.
+   arithmetic in your head, and in LIVE VIEW the ISS marker — or the arrow,
+   if the ISS is out of frame — flashes five times around each change.
 5. **Peak elevation** is the best part of the window. If the pass is low
    (ε below about 20°) expect a weak, short contact.
 
@@ -96,22 +109,66 @@ change, and the repeater is not always the active mode — check
 
 ## The sky finder (LIVE VIEW)
 
-Tap **LIVE VIEW** on any window card and hold the phone up. The camera view
-shows:
+Tap **LIVE VIEW** on any window card and hold the phone up. The camera fills the
+screen, with the clock and the window countdown in a translucent bar across the
+top, and over the sky:
 
-- the horizon and the compass points,
-- the whole arc of that pass across the sky,
-- a marker on where the ISS is right now,
-- an arrow pointing which way to turn when it is out of frame,
+- the horizon and the N/S/E/W bearing lines, with their letters,
+- the whole arc of that pass across the sky, with the channel to be on written
+  along each stretch of it,
+- a marker on where the ISS is right now, with a box beside it showing the
+  channel to be on — from five minutes before the window opens, and on any
+  other pass whenever the ISS is above your horizon,
+- an arrow pointing which way to turn when the ISS is out of frame,
 - azimuth, elevation and range along the bottom.
+
+**At each frequency change, the ISS marker flashes five times** — a second
+before, half a second before, on the change, half a second after and a second
+after — so you can keep your eyes on the sky and still catch the retune. If the
+ISS is out of frame at that moment, the pointing arrow flashes instead.
 
 **All bearings are TRUE, not magnetic.** The app carries the World Magnetic
 Model and corrects for declination at your own coordinates, so what it shows
 lines up with a rotator readout or a paper map. The correction in use is printed
 under the readout.
 
-Tap **HUD** in the header for a crosshair showing exactly where the phone is
-pointed, which is what you want when lining up a beam.
+### Live view settings
+
+Tap **SETTINGS** in the sky finder's header for switches that control what is
+drawn over the camera. Everything is optional except the ISS marker itself, and
+everything starts switched on:
+
+| Switch | What it shows |
+| --- | --- |
+| **Crosshair** | A fixed crosshair at the centre of the screen, for sighting a beam. |
+| **HDG/EL for crosshair** | The true heading and elevation the crosshair is pointing at. |
+| **N/S/E/W bearing lines** | The north–south and east–west lines across the sky. |
+| **N/S/E/W labels** | The letters on those lines. |
+| **Horizon** | The horizon line. |
+| **Flight path** | The pass arc itself. |
+| **Frequency labels** | The channel written along each stretch of the path. |
+| **Frequency box at ISS** | The channel box beside the ISS marker, shown whenever the ISS is up. |
+| **Window and retune marks** | The rings at the window's edges and the chevrons at each retune, on the arc — kept even with the path hidden. |
+| **Status bar** | The clock and countdown bar across the top. |
+| **Station position** | The azimuth / elevation / range readout along the bottom. |
+
+#### Presets
+
+Four buttons at the top of that page hold whole arrangements of switches:
+
+- **ALL ON** and **ALL OFF** set every switch at once (ALL OFF leaves just the
+  ISS marker and the arrow — the bare sky).
+- **CUSTOM 1** and **CUSTOM 2** are two arrangements of your own. Pick one,
+  set the switches the way you want them, and they are remembered under that
+  button; pick the other and set it up differently. Each remembers whatever
+  you last left it at — there is no separate save step.
+
+**Tap to declutter.** Turn on the switch above the buttons and a tap anywhere
+on the sky steps through the presets — ALL ON, CUSTOM 1, CUSTOM 2, ALL OFF,
+round again — with the preset's name shown briefly at the top of the screen.
+Useful with gloves, or with the phone held up at arm's length. A long press on
+any preset button adds it to or removes it from that rotation; a tick in front
+of the name shows which are in.
 
 ### If the compass says "Calibrating"
 
@@ -136,15 +193,18 @@ blank panel, and the bearings are just as accurate.
 | **Station mode** | SINGLE plans around the repeater from one station. DUAL finds mutual windows for two. |
 | **Time zone** | LOCAL, ZULU (UTC), or any zone you pick. Drives the clock and every time in the results. |
 | **Search span** | How many days ahead to look: 1, 3 or 7. |
-| **Minimum elevation** | Ignore passes that never get this high. Raise it if low passes are blocked by terrain or buildings. |
+| **Minimum elevation** | Ignore passes that never get this high. Starts at 0°; raise it if low passes are blocked by terrain or buildings. |
 | **Altitude units** | Feet or metres — how the optional third coordinate value is read. |
 | **Range units** | Nautical miles, statute miles, or kilometres. |
 | **Range measured** | SLANT is the straight-line distance to the ISS; GROUND is measured along the surface. |
-| **Max range from ISS** | The distance limit for counting as "in range." |
+| **Max range from ISS** | How far from the ISS a station can be and still count as "in range," set on a slider. The top of the slider is the furthest anyone on Earth can see the ISS from — even from a mountain summit — so leaving it there means every pass; bring it down to keep only the closer, higher ones. Switching units converts the value. |
+| **Channel display** | FREQUENCY shows the five downlink channels as numbers; NAME shows the names you give them under **EDIT CHANNEL NAMES**. |
 | **Night mode** | Black background, red text — for use at the radio without wrecking your dark adaptation. |
 | **Notifications** | A local reminder 10 minutes before each pass on your saved list opens. |
 | **Enter TLE manually** | Paste your own two-line element set instead of the fetched one. |
 | **Acknowledgements** | Licence and attribution notices for the third-party work the app is built on. |
+
+The sky finder has its own settings page — see *Live view settings* above.
 
 ---
 
